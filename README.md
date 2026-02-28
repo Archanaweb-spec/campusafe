@@ -202,7 +202,7 @@ LocalStorage Updated
 
 <p>
 <b>Website:</b><br>
-<a href="https://your-live-link.com">https://your-live-link.com</a>
+<a href="https://github.com/Archanaweb-spec/campusafe.git">https://your-live-link.com</a>
 </p>
 
 <p>
@@ -260,8 +260,8 @@ LocalStorage Updated
 <h2>👥 Team Members</h2>
 
 <ul>
-<li><b>Aswin P Pai</b> – Developer</li>
-<li>Add other team members</li>
+<li><b>Archana  </b> – Developer</li>
+<li>Lakshmi </li>
 </ul>
 
 <hr>
