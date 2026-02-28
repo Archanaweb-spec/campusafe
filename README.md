@@ -202,7 +202,7 @@ LocalStorage Updated
 
 <p>
 <b>Website:</b><br>
-<a href="https://github.com/Archanaweb-spec/campusafe.git">https://your-live-link.com</a>
+<a href="https://archanaweb-spec.github.io/campusafe/">https://your-live-link.com</a>
 </p>
 
 <p>
