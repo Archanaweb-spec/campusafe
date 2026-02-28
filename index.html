@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>SafeCampus | Safety Tracker</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet" href="background.css">
+
+<style>
+
+/* HERO BACKGROUND IMAGE */
+.hero-bg{
+background:
+linear-gradient(rgba(0,40,30,0.75), rgba(0,40,30,0.85)),
+url("screenshot safety.jpeg");
+
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+min-height: 90vh;
+display: flex;
+align-items: center;
+}
+
+/* Navbar blur effect */
+.nav-blur{
+background: rgba(255,255,255,0.9);
+backdrop-filter: blur(8px);
+}
+
+/* SOS animation */
+.sos-pulse{
+animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+0%{transform: scale(1);}
+50%{transform: scale(1.08);}
+100%{transform: scale(1);}
+}
+
+</style>
+
+</head>
+
+<body class="text-gray-800">
+
+<!-- NAVBAR -->
+<div class="nav-blur shadow-md px-8 py-4 flex justify-between items-center">
+
+<div class="flex items-center gap-3">
+
+<div class="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center text-white font-bold">
+🛡
+</div>
+
+<div>
+<h1 class="font-bold text-lg">SafeCampus</h1>
+<p class="text-sm text-gray-500">Safety Tracker</p>
+</div>
+
+</div>
+
+<div class="flex gap-6 items-center">
+
+<a href="index.html" class="font-semibold text-green-700">
+Home
+</a>
+
+<a href="report.html" class="hover:text-green-700">
+Report
+</a>
+
+<a href="track.html" class="hover:text-green-700">
+Track
+</a>
+
+<a href="admin.html">
+<button class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">
+Admin
+</button>
+</a>
+
+</div>
+
+</div>
+
+
+<!-- HERO SECTION -->
+<div class="hero-bg">
+
+<div class="max-w-4xl px-10">
+
+<p class="text-green-300 mb-4 font-semibold">
+Campus Safety Platform
+</p>
+
+<h1 class="text-5xl font-bold text-white mb-6 leading-tight">
+
+Report Safety Concerns.<br>
+<span class="text-green-300">
+Protect Every Student.
+</span>
+
+</h1>
+
+<p class="text-gray-200 text-lg mb-8 max-w-2xl">
+
+A student walking alone at night notices a broken streetlight.
+A hostel corridor camera stops working.
+A suspicious activity occurs near the parking area.
+
+SafeCampus empowers students to instantly report unsafe situations,
+track complaint progress, and ensure rapid administrative response.
+
+Together, we create a safer campus environment.
+
+</p>
+
+
+<div class="flex gap-4 mb-8">
+
+<a href="report.html">
+<button class="bg-white text-green-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition">
+
+⚠ Report a Complaint
+
+</button>
+</a>
+
+
+<a href="track.html">
+<button class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition">
+
+🔍 Track My Complaint
+
+</button>
+</a>
+
+</div>
+
+
+<!-- EMERGENCY CONTACT INTERFACE -->
+<div class="bg-red-50 border border-red-200 rounded-lg p-6 max-w-md">
+
+<h3 class="text-red-700 font-bold text-xl mb-2">
+🚨 Emergency Contact
+</h3>
+
+<p class="text-gray-700 mb-3">
+If you are in immediate danger, contact campus security or press SOS.
+</p>
+
+<div class="text-red-600 font-bold text-lg mb-4">
+📞 Campus Security: 1800-SAFE
+</div>
+
+<div class="flex gap-4">
+
+<!-- Call Button -->
+<a href="tel:18007233">
+<button class="bg-red-600 text-white px-5 py-2 rounded hover:bg-red-700">
+
+📞 Call Security
+
+</button>
+</a>
+
+<!-- SOS Button -->
+<button onclick="triggerSOS()" class="bg-red-700 text-white px-5 py-2 rounded hover:bg-red-800 sos-pulse">
+
+🚨 SOS Emergency
+
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- SAFETY SCENARIO SECTION -->
+<div class="py-16 px-8 bg-white">
+
+<h2 class="text-3xl font-bold text-center mb-12">
+Why SafeCampus Matters
+</h2>
+
+<div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+<div class="p-6 shadow-lg rounded-lg">
+
+<h3 class="font-bold text-lg mb-3">
+🌙 Night Safety
+</h3>
+
+<p>
+Report broken lights, unsafe zones, or suspicious movements during night hours to ensure safer travel across campus.
+</p>
+
+</div>
+
+<div class="p-6 shadow-lg rounded-lg">
+
+<h3 class="font-bold text-lg mb-3">
+📹 Infrastructure Monitoring
+</h3>
+
+<p>
+Notify administration about non-working cameras, damaged equipment, or security failures instantly.
+</p>
+
+</div>
+
+<div class="p-6 shadow-lg rounded-lg">
+
+<h3 class="font-bold text-lg mb-3">
+🚨 Emergency Reporting
+</h3>
+
+<p>
+Students can report emergencies quickly, helping authorities respond faster and prevent escalation.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- EMERGENCY BANNER -->
+<div class="bg-red-100 border-t border-red-300 px-8 py-4 flex justify-between items-center">
+
+<div class="text-red-700 font-semibold">
+⚠ Emergency? Call Campus Security Immediately
+</div>
+
+<a href="tel:18007233">
+<button class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+📞 1800-SAFE
+</button>
+</a>
+
+</div>
+
+
+<!-- FOOTER -->
+<div class="bg-green-900 text-white text-center py-4">
+
+SafeCampus © 2026 | Campus Safety Complaint System
+
+</div>
+
+
+<!-- SOS SCRIPT -->
+<script>
+
+function triggerSOS()
+{
+let confirmSOS = confirm(
+"Emergency SOS will alert campus security immediately.\n\nDo you want to continue?"
+);
+
+if(confirmSOS)
+{
+alert(
+"🚨 SOS Alert Sent Successfully!\n\nCampus Security has been notified.\nHelp will arrive shortly."
+);
+}
+}
+
+</script>
+
+
+</body>
+</html>

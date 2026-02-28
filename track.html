@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Track</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="script.js"></script>
+<link rel="stylesheet" href="background.css">
+</head>
+
+<body class="p-10">
+
+<h2 class="text-xl mb-4">
+Track Complaint
+</h2>
+
+<input id="trackID"
+placeholder="Enter Complaint ID"
+class="border p-2">
+
+<button onclick="trackComplaint()"
+class="bg-blue-600 text-white px-4 py-2">
+Track
+</button>
+
+<p id="output" class="mt-4"></p>
+
+<script>
+
+function trackComplaint(){
+
+let id =
+document.getElementById("trackID").value;
+
+let complaints =
+getComplaints();
+
+let found =
+complaints.find(c => c.id === id);
+
+if(found){
+
+output.innerHTML =
+"Status: " + found.status +
+"<br>Location: " + found.location;
+
+}
+else{
+
+output.innerHTML =
+"Complaint not found";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Admin Panel</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="script.js"></script>
+<link rel="stylesheet" href="background.css">
+
+</head>
+
+<body class="p-10 bg-gray-100">
+
+<!-- LOGIN SECTION -->
+<div id="loginSection" class="max-w-sm mx-auto bg-white p-5 shadow">
+
+<h2 class="text-xl font-bold mb-3">Admin Login</h2>
+
+<input id="username"
+type="text"
+placeholder="Username"
+class="border p-2 w-full mb-2">
+
+<input id="password"
+type="password"
+placeholder="Password"
+class="border p-2 w-full mb-2">
+
+<button onclick="login()"
+class="bg-blue-500 text-white px-4 py-2 w-full">
+Login
+</button>
+
+<p id="error" class="text-red-500 mt-2"></p>
+
+</div>
+
+
+<!-- ADMIN PANEL -->
+<div id="adminPanel" style="display:none">
+
+<div class="flex justify-between items-center mb-4">
+
+<h2 class="text-2xl font-bold">
+Admin Panel
+</h2>
+
+<button onclick="logout()"
+class="bg-red-500 text-white px-4 py-2">
+Logout
+</button>
+
+</div>
+
+<div id="list"></div>
+
+</div>
+
+
+<script>
+
+// CONSTANT USERNAME AND PASSWORD
+const ADMIN_USERNAME = "admin";
+const ADMIN_PASSWORD = "1234";
+
+
+// CHECK LOGIN STATUS ON PAGE LOAD
+if(localStorage.getItem("adminLoggedIn")=="true"){
+showAdminPanel();
+}
+
+
+// LOGIN FUNCTION
+function login(){
+
+let user = document.getElementById("username").value;
+let pass = document.getElementById("password").value;
+
+if(user==ADMIN_USERNAME && pass==ADMIN_PASSWORD){
+
+localStorage.setItem("adminLoggedIn","true");
+
+showAdminPanel();
+
+}
+else{
+
+document.getElementById("error").innerText =
+"Invalid username or password";
+
+}
+
+}
+
+
+// LOGOUT FUNCTION
+function logout(){
+
+localStorage.removeItem("adminLoggedIn");
+
+location.reload();
+
+}
+
+
+// SHOW ADMIN PANEL
+function showAdminPanel(){
+
+document.getElementById("loginSection").style.display="none";
+
+document.getElementById("adminPanel").style.display="block";
+
+loadComplaints();
+
+}
+
+
+// LOAD COMPLAINTS
+function loadComplaints(){
+
+let complaints = getComplaints();
+
+let html="";
+
+complaints.forEach((c,index)=>{
+
+html+=`
+
+<div class="bg-white p-4 mb-3 shadow">
+
+ID: ${c.id}<br>
+Location: ${c.location}<br>
+Description: ${c.description}<br>
+
+<select onchange="updateStatus(${index},this.value)"
+class="border p-1 mt-2">
+
+<option ${c.status=="Pending"?"selected":""}>
+Pending
+</option>
+
+<option ${c.status=="Resolved"?"selected":""}>
+Resolved
+</option>
+
+</select>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("list").innerHTML = html;
+
+}
+
+
+// UPDATE STATUS
+function updateStatus(index,value){
+
+let complaints = getComplaints();
+
+complaints[index].status = value;
+
+saveComplaints(complaints);
+
+loadComplaints();
+
+}
+
+</script>
+
+</body>
+</html>
