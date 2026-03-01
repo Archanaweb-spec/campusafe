@@ -207,7 +207,7 @@ LocalStorage Updated
 
 <p>
 <b>Demo Video:</b><br>
-<a href="(https://youtu.be/jmdYHlHAe8I)">https://your-video-link.com</a>
+<a href="https://youtu.be/jmdYHlHAe8I">Watch the demo video</a>
 </p>
 
 <hr>
